@@ -14,16 +14,17 @@ video {
 
 /*Layout the subtitle container div*/
 div.metafragments {
-  background-color: white;
-  width: 50%;
+  
   position: absolute;
 }
 
 /* Hide and style the subtitles */
-.metafragments a {
+.subtitledvideo a {
   visibility: hidden;
   display: block;
   position: absolute;
+  background-color: white;
+  width: 50%;
   top: -1000px;
   left: -1000px; 
 -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
