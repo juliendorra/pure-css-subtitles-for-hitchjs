@@ -1,0 +1,1696 @@
+@-hitch-requires media-time-2.js;
+
+
+/*Layout the video + subtitles container div*/
+div.subtitledvideo {
+  height: 80%;
+  padding-left: 20%;
+}
+
+/*Size the video*/
+video {
+  width: 60%;
+}
+
+/*Layout the subtitle container div*/
+div.metafragments {
+  background-color: white;
+  width: 50%;
+  position: absolute;
+}
+
+/* Hide and style the subtitles */
+.metafragments a {
+  visibility: hidden;
+  display: block;
+  position: absolute;
+  top: -1000px;
+  left: -1000px; 
+-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  filter: alpha(opacity=50);
+  opacity: 0.5;
+  padding: 1em;
+  color: black;
+  text-decoration: none;
+  font: 2.2em sans-serif;
+  z-index: 10;
+}
+
+@media (max-width : 480px) {
+  .metafragments a {
+  font: 1em sans-serif;
+}
+
+}
+
+
+/* this selector : 
+
+a[src*="0:00:00.099,0:00:04.350"]  {
+}
+
+don't work, be it with end, strict, etc..
+I suppose the fragment identifier in the src attribute is not considered part of the URL.
+ */
+
+/*So we copy the media fragments fragment identifier to a data-time custom attribute with exactly the same values and use that as the attribute content selector.
+It's not as elegant that using the fragment identifier, but a CMS or script can at least do it automatically */
+
+/*moz-prefixed*/
+
+video:-media-time(99,4350) ~ a[data-time="0:00:00.099,0:00:04.350"] {
+    visibility: visible;
+    top: 0%;
+    left: 0%; 
+}
+
+
+
+video:-media-time(4350,9560) ~ a[data-time="0:00:04.350,0:00:09.560"] {
+      visibility: visible;
+      top: 0%;
+      left: 0%; 
+  }
+
+
+
+
+video:-media-time(9560,16420) ~ a[data-time="0:00:09.560,0:00:16.420"] {
+       visibility: visible;
+       top: 0%;
+       left: 0%; 
+ }
+
+
+
+a[data-time="0:00:16.420,0:00:19.350"] {
+  -moz-animation-name    : appear;
+  -moz-animation-duration: 2930ms;
+  -moz-animation-delay   : 16420ms;}
+
+
+
+
+a[data-time="0:00:19.350,0:00:24.200"] {
+  -moz-animation-name    : appear;
+  -moz-animation-duration: 4850ms;
+  -moz-animation-delay   : 19350ms;}
+
+
+a[data-time="0:00:24.200,0:00:24.880"] {
+  -moz-animation-name    : appear;
+  -moz-animation-duration: 680ms;
+  -moz-animation-delay   : 24200ms;}
+
+
+a[data-time="0:00:24.880,0:00:28.100"] {
+  -moz-animation-name    : appear;
+  -moz-animation-duration: 3220ms;
+  -moz-animation-delay   : 24880ms;}
+
+
+a[data-time="0:00:28.100,0:00:28.670"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 570ms;
+  -moz-animation-delay: 28100ms;}
+
+
+a[data-time="0:00:28.670,0:00:35.100"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 6430ms;
+  -moz-animation-delay: 28670ms;}
+
+
+a[data-time="0:00:35.100,0:00:37.719"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 2619ms;
+  -moz-animation-delay: 35100ms;}
+
+
+a[data-time="0:00:37.719,0:00:43.440"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 5721ms;
+  -moz-animation-delay: 37719ms;}
+
+
+a[data-time="0:00:43.440,0:00:49.120"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 5680ms;
+  -moz-animation-delay: 43440ms;}
+
+
+a[data-time="0:00:49.120,0:00:50.109"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 989ms;
+  -moz-animation-delay: 49120ms;}
+
+
+a[data-time="0:00:50.109,0:00:56.559"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 6450ms;
+  -moz-animation-delay: 50109ms;}
+
+
+a[data-time="0:00:56.559,0:01:02.620"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 6060ms;
+  -moz-animation-delay: 56559ms;}
+
+
+
+/* 1 minute */
+
+a[data-time="0:01:02.620,0:01:06.450"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 3830ms;
+  -moz-animation-delay: 62620ms;}
+
+
+a[data-time="0:01:06.450,0:01:13.369"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 6919ms;
+  -moz-animation-delay: 66450ms;}
+
+
+
+a[data-time="0:01:13.369,0:01:14.460"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 1091ms;
+  -moz-animation-delay: 73369ms;}
+
+
+
+a[data-time="0:01:14.460,0:01:19.770"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 5310ms;
+  -moz-animation-delay: 74460ms;}
+
+
+a[data-time="0:01:19.770,0:01:25.159"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 5389ms;
+  -moz-animation-delay: 79770ms;}
+
+
+a[data-time="0:01:25.159,0:01:31.119"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 5960ms;
+  -moz-animation-delay: 85159ms;}
+
+
+a[data-time="0:01:31.119,0:01:36.340"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 5221ms;
+  -moz-animation-delay: 91119ms;}
+
+
+a[data-time="0:01:36.340,0:01:39.000"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 2660ms;
+  -moz-animation-delay: 96340ms;}
+
+
+a[data-time="0:01:39.000,0:01:43.119"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 4119ms;
+  -moz-animation-delay: 99000ms;}
+
+
+a[data-time="0:01:43.119,0:01:46.780"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 3661ms;
+  -moz-animation-delay: 103119ms;}
+
+
+a[data-time="0:01:46.780,0:01:49.609"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 2829ms;
+  -moz-animation-delay: 106780ms;}
+
+a[data-time="0:01:49.609,0:01:56.609"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 7000ms;
+  -moz-animation-delay: 109609ms;}
+
+
+
+
+
+
+a[data-time="0:01:56.789,0:02:02.960"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 6171ms;
+  -moz-animation-delay: 116789ms;}
+
+
+
+/* 2 minutes*/
+
+a[data-time="0:02:02.960,0:02:06.600"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 3639ms;
+  -moz-animation-delay: 122960ms;}
+
+
+
+a[data-time="0:02:06.600,0:02:12.080"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 5480ms;
+  -moz-animation-delay: 126600ms;}
+
+
+
+a[data-time="0:02:12.080,0:02:16.640"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 4560ms;
+  -moz-animation-delay: 132080ms;}
+
+
+
+a[data-time="0:02:16.640,0:02:22.260"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 5620ms;
+  -moz-animation-delay: 136640ms;}
+
+
+
+a[data-time="0:02:22.260,0:02:24.340"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 2080ms;
+  -moz-animation-delay: 142260ms;}
+
+
+
+a[data-time="0:02:24.340,0:02:29.440"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 5100ms;
+  -moz-animation-delay: 144340ms;}
+
+
+
+a[data-time="0:02:29.440,0:02:33.230"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 3790ms;
+  -moz-animation-delay: 149440ms;}
+
+
+
+
+a[data-time="0:02:33.230,0:02:38.390"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 5160ms;
+  -moz-animation-delay: 153230ms;}
+
+
+
+
+a[data-time="0:02:38.390,0:02:42.550"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 4160ms;
+  -moz-animation-delay: 158390ms;}
+
+
+
+
+a[data-time="0:02:42.550,0:02:48.150"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 5600ms;
+  -moz-animation-delay: 162550ms;}
+
+
+
+/*webkit-prefixed*/
+
+a[data-time="0:00:00.099,0:00:04.350"] {
+  -webkit-animation-name    : appear;
+  -webkit-animation-duration: 4000ms;
+  -webkit-animation-delay   : 99ms;}
+
+
+
+ a[data-time="0:00:04.350,0:00:09.560"] {
+  -webkit-animation-name    : appear;
+  -webkit-animation-duration: 5210ms;
+  -webkit-animation-delay   : 4350ms;}
+
+
+
+
+a[data-time="0:00:09.560,0:00:16.420"] {
+  -webkit-animation-name    : appear;
+  -webkit-animation-duration: 6860ms;
+  -webkit-animation-delay   : 9560ms;}
+
+
+
+a[data-time="0:00:16.420,0:00:19.350"] {
+  -webkit-animation-name    : appear;
+  -webkit-animation-duration: 2930ms;
+  -webkit-animation-delay   : 16420ms;}
+
+
+
+
+a[data-time="0:00:19.350,0:00:24.200"] {
+  -webkit-animation-name    : appear;
+  -webkit-animation-duration: 4850ms;
+  -webkit-animation-delay   : 19350ms;}
+
+
+a[data-time="0:00:24.200,0:00:24.880"] {
+  -webkit-animation-name    : appear;
+  -webkit-animation-duration: 680ms;
+  -webkit-animation-delay   : 24200ms;}
+
+
+a[data-time="0:00:24.880,0:00:28.100"] {
+  -webkit-animation-name    : appear;
+  -webkit-animation-duration: 3220ms;
+  -webkit-animation-delay   : 24880ms;}
+
+
+a[data-time="0:00:28.100,0:00:28.670"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 570ms;
+  -webkit-animation-delay: 28100ms;}
+
+
+a[data-time="0:00:28.670,0:00:35.100"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 6430ms;
+  -webkit-animation-delay: 28670ms;}
+
+
+a[data-time="0:00:35.100,0:00:37.719"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 2619ms;
+  -webkit-animation-delay: 35100ms;}
+
+
+a[data-time="0:00:37.719,0:00:43.440"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 5721ms;
+  -webkit-animation-delay: 37719ms;}
+
+
+a[data-time="0:00:43.440,0:00:49.120"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 5680ms;
+  -webkit-animation-delay: 43440ms;}
+
+
+a[data-time="0:00:49.120,0:00:50.109"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 989ms;
+  -webkit-animation-delay: 49120ms;}
+
+
+a[data-time="0:00:50.109,0:00:56.559"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 6450ms;
+  -webkit-animation-delay: 50109ms;}
+
+
+a[data-time="0:00:56.559,0:01:02.620"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 6060ms;
+  -webkit-animation-delay: 56559ms;}
+
+
+
+/* 1 minute */
+
+a[data-time="0:01:02.620,0:01:06.450"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 3830ms;
+  -webkit-animation-delay: 62620ms;}
+
+
+a[data-time="0:01:06.450,0:01:13.369"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 6919ms;
+  -webkit-animation-delay: 66450ms;}
+
+
+
+a[data-time="0:01:13.369,0:01:14.460"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 1091ms;
+  -webkit-animation-delay: 73369ms;}
+
+
+
+a[data-time="0:01:14.460,0:01:19.770"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 5310ms;
+  -webkit-animation-delay: 74460ms;}
+
+
+a[data-time="0:01:19.770,0:01:25.159"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 5389ms;
+  -webkit-animation-delay: 79770ms;}
+
+
+a[data-time="0:01:25.159,0:01:31.119"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 5960ms;
+  -webkit-animation-delay: 85159ms;}
+
+
+a[data-time="0:01:31.119,0:01:36.340"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 5221ms;
+  -webkit-animation-delay: 91119ms;}
+
+
+a[data-time="0:01:36.340,0:01:39.000"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 2660ms;
+  -webkit-animation-delay: 96340ms;}
+
+
+a[data-time="0:01:39.000,0:01:43.119"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 4119ms;
+  -webkit-animation-delay: 99000ms;}
+
+
+a[data-time="0:01:43.119,0:01:46.780"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 3661ms;
+  -webkit-animation-delay: 103119ms;}
+
+
+a[data-time="0:01:46.780,0:01:49.609"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 2829ms;
+  -webkit-animation-delay: 106780ms;}
+
+a[data-time="0:01:49.609,0:01:56.609"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 7000ms;
+  -webkit-animation-delay: 109609ms;}
+
+
+
+
+
+
+a[data-time="0:01:56.789,0:02:02.960"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 6171ms;
+  -webkit-animation-delay: 116789ms;}
+
+
+
+/* 2 minutes*/
+
+a[data-time="0:02:02.960,0:02:06.600"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 3639ms;
+  -webkit-animation-delay: 122960ms;}
+
+
+
+a[data-time="0:02:06.600,0:02:12.080"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 5480ms;
+  -webkit-animation-delay: 126600ms;}
+
+
+
+a[data-time="0:02:12.080,0:02:16.640"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 4560ms;
+  -webkit-animation-delay: 132080ms;}
+
+
+
+a[data-time="0:02:16.640,0:02:22.260"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 5620ms;
+  -webkit-animation-delay: 136640ms;}
+
+
+
+a[data-time="0:02:22.260,0:02:24.340"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 2080ms;
+  -webkit-animation-delay: 142260ms;}
+
+
+
+a[data-time="0:02:24.340,0:02:29.440"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 5100ms;
+  -webkit-animation-delay: 144340ms;}
+
+
+
+a[data-time="0:02:29.440,0:02:33.230"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 3790ms;
+  -webkit-animation-delay: 149440ms;}
+
+
+
+
+a[data-time="0:02:33.230,0:02:38.390"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 5160ms;
+  -webkit-animation-delay: 153230ms;}
+
+
+
+
+a[data-time="0:02:38.390,0:02:42.550"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 4160ms;
+  -webkit-animation-delay: 158390ms;}
+
+
+
+
+a[data-time="0:02:42.550,0:02:48.150"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 5600ms;
+  -webkit-animation-delay: 162550ms;}
+
+
+
+
+
+a[data-time="0:00:00.099,0:00:04.350"] {
+  -moz-animation-name    : appear;
+  -moz-animation-duration: 4000ms;
+  -moz-animation-delay   : 99ms;}
+
+
+
+ a[data-time="0:00:04.350,0:00:09.560"] {
+  -moz-animation-name    : appear;
+  -moz-animation-duration: 5210ms;
+  -moz-animation-delay   : 4350ms;}
+
+
+
+
+a[data-time="0:00:09.560,0:00:16.420"] {
+  -moz-animation-name    : appear;
+  -moz-animation-duration: 6860ms;
+  -moz-animation-delay   : 9560ms;}
+
+
+
+a[data-time="0:00:16.420,0:00:19.350"] {
+  -moz-animation-name    : appear;
+  -moz-animation-duration: 2930ms;
+  -moz-animation-delay   : 16420ms;}
+
+
+
+
+a[data-time="0:00:19.350,0:00:24.200"] {
+  -moz-animation-name    : appear;
+  -moz-animation-duration: 4850ms;
+  -moz-animation-delay   : 19350ms;}
+
+
+a[data-time="0:00:24.200,0:00:24.880"] {
+  -moz-animation-name    : appear;
+  -moz-animation-duration: 680ms;
+  -moz-animation-delay   : 24200ms;}
+
+
+a[data-time="0:00:24.880,0:00:28.100"] {
+  -moz-animation-name    : appear;
+  -moz-animation-duration: 3220ms;
+  -moz-animation-delay   : 24880ms;}
+
+
+a[data-time="0:00:28.100,0:00:28.670"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 570ms;
+  -moz-animation-delay: 28100ms;}
+
+
+a[data-time="0:00:28.670,0:00:35.100"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 6430ms;
+  -moz-animation-delay: 28670ms;}
+
+
+a[data-time="0:00:35.100,0:00:37.719"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 2619ms;
+  -moz-animation-delay: 35100ms;}
+
+
+a[data-time="0:00:37.719,0:00:43.440"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 5721ms;
+  -moz-animation-delay: 37719ms;}
+
+
+a[data-time="0:00:43.440,0:00:49.120"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 5680ms;
+  -moz-animation-delay: 43440ms;}
+
+
+a[data-time="0:00:49.120,0:00:50.109"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 989ms;
+  -moz-animation-delay: 49120ms;}
+
+
+a[data-time="0:00:50.109,0:00:56.559"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 6450ms;
+  -moz-animation-delay: 50109ms;}
+
+
+a[data-time="0:00:56.559,0:01:02.620"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 6060ms;
+  -moz-animation-delay: 56559ms;}
+
+
+
+/* 1 minute */
+
+a[data-time="0:01:02.620,0:01:06.450"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 3830ms;
+  -moz-animation-delay: 62620ms;}
+
+
+a[data-time="0:01:06.450,0:01:13.369"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 6919ms;
+  -moz-animation-delay: 66450ms;}
+
+
+
+a[data-time="0:01:13.369,0:01:14.460"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 1091ms;
+  -moz-animation-delay: 73369ms;}
+
+
+
+a[data-time="0:01:14.460,0:01:19.770"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 5310ms;
+  -moz-animation-delay: 74460ms;}
+
+
+a[data-time="0:01:19.770,0:01:25.159"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 5389ms;
+  -moz-animation-delay: 79770ms;}
+
+
+a[data-time="0:01:25.159,0:01:31.119"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 5960ms;
+  -moz-animation-delay: 85159ms;}
+
+
+a[data-time="0:01:31.119,0:01:36.340"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 5221ms;
+  -moz-animation-delay: 91119ms;}
+
+
+a[data-time="0:01:36.340,0:01:39.000"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 2660ms;
+  -moz-animation-delay: 96340ms;}
+
+
+a[data-time="0:01:39.000,0:01:43.119"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 4119ms;
+  -moz-animation-delay: 99000ms;}
+
+
+a[data-time="0:01:43.119,0:01:46.780"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 3661ms;
+  -moz-animation-delay: 103119ms;}
+
+
+a[data-time="0:01:46.780,0:01:49.609"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 2829ms;
+  -moz-animation-delay: 106780ms;}
+
+a[data-time="0:01:49.609,0:01:56.609"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 7000ms;
+  -moz-animation-delay: 109609ms;}
+
+
+
+
+
+
+a[data-time="0:01:56.789,0:02:02.960"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 6171ms;
+  -moz-animation-delay: 116789ms;}
+
+
+
+/* 2 minutes*/
+
+a[data-time="0:02:02.960,0:02:06.600"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 3639ms;
+  -moz-animation-delay: 122960ms;}
+
+
+
+a[data-time="0:02:06.600,0:02:12.080"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 5480ms;
+  -moz-animation-delay: 126600ms;}
+
+
+
+a[data-time="0:02:12.080,0:02:16.640"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 4560ms;
+  -moz-animation-delay: 132080ms;}
+
+
+
+a[data-time="0:02:16.640,0:02:22.260"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 5620ms;
+  -moz-animation-delay: 136640ms;}
+
+
+
+a[data-time="0:02:22.260,0:02:24.340"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 2080ms;
+  -moz-animation-delay: 142260ms;}
+
+
+
+a[data-time="0:02:24.340,0:02:29.440"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 5100ms;
+  -moz-animation-delay: 144340ms;}
+
+
+
+a[data-time="0:02:29.440,0:02:33.230"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 3790ms;
+  -moz-animation-delay: 149440ms;}
+
+
+
+
+a[data-time="0:02:33.230,0:02:38.390"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 5160ms;
+  -moz-animation-delay: 153230ms;}
+
+
+
+
+a[data-time="0:02:38.390,0:02:42.550"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 4160ms;
+  -moz-animation-delay: 158390ms;}
+
+
+
+
+a[data-time="0:02:42.550,0:02:48.150"] {
+  -moz-animation-name: appear;
+  -moz-animation-duration: 5600ms;
+  -moz-animation-delay: 162550ms;}
+
+
+
+/*ms-prefixed*/
+
+a[data-time="0:00:00.099,0:00:04.350"] {
+  -webkit-animation-name    : appear;
+  -webkit-animation-duration: 4000ms;
+  -webkit-animation-delay   : 99ms;}
+
+
+
+ a[data-time="0:00:04.350,0:00:09.560"] {
+  -webkit-animation-name    : appear;
+  -webkit-animation-duration: 5210ms;
+  -webkit-animation-delay   : 4350ms;}
+
+
+
+
+a[data-time="0:00:09.560,0:00:16.420"] {
+  -webkit-animation-name    : appear;
+  -webkit-animation-duration: 6860ms;
+  -webkit-animation-delay   : 9560ms;}
+
+
+
+a[data-time="0:00:16.420,0:00:19.350"] {
+  -webkit-animation-name    : appear;
+  -webkit-animation-duration: 2930ms;
+  -webkit-animation-delay   : 16420ms;}
+
+
+
+
+a[data-time="0:00:19.350,0:00:24.200"] {
+  -webkit-animation-name    : appear;
+  -webkit-animation-duration: 4850ms;
+  -webkit-animation-delay   : 19350ms;}
+
+
+a[data-time="0:00:24.200,0:00:24.880"] {
+  -webkit-animation-name    : appear;
+  -webkit-animation-duration: 680ms;
+  -webkit-animation-delay   : 24200ms;}
+
+
+a[data-time="0:00:24.880,0:00:28.100"] {
+  -webkit-animation-name    : appear;
+  -webkit-animation-duration: 3220ms;
+  -webkit-animation-delay   : 24880ms;}
+
+
+a[data-time="0:00:28.100,0:00:28.670"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 570ms;
+  -webkit-animation-delay: 28100ms;}
+
+
+a[data-time="0:00:28.670,0:00:35.100"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 6430ms;
+  -webkit-animation-delay: 28670ms;}
+
+
+a[data-time="0:00:35.100,0:00:37.719"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 2619ms;
+  -webkit-animation-delay: 35100ms;}
+
+
+a[data-time="0:00:37.719,0:00:43.440"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 5721ms;
+  -webkit-animation-delay: 37719ms;}
+
+
+a[data-time="0:00:43.440,0:00:49.120"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 5680ms;
+  -webkit-animation-delay: 43440ms;}
+
+
+a[data-time="0:00:49.120,0:00:50.109"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 989ms;
+  -webkit-animation-delay: 49120ms;}
+
+
+a[data-time="0:00:50.109,0:00:56.559"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 6450ms;
+  -webkit-animation-delay: 50109ms;}
+
+
+a[data-time="0:00:56.559,0:01:02.620"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 6060ms;
+  -webkit-animation-delay: 56559ms;}
+
+
+
+/* 1 minute */
+
+a[data-time="0:01:02.620,0:01:06.450"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 3830ms;
+  -webkit-animation-delay: 62620ms;}
+
+
+a[data-time="0:01:06.450,0:01:13.369"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 6919ms;
+  -webkit-animation-delay: 66450ms;}
+
+
+
+a[data-time="0:01:13.369,0:01:14.460"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 1091ms;
+  -webkit-animation-delay: 73369ms;}
+
+
+
+a[data-time="0:01:14.460,0:01:19.770"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 5310ms;
+  -webkit-animation-delay: 74460ms;}
+
+
+a[data-time="0:01:19.770,0:01:25.159"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 5389ms;
+  -webkit-animation-delay: 79770ms;}
+
+
+a[data-time="0:01:25.159,0:01:31.119"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 5960ms;
+  -webkit-animation-delay: 85159ms;}
+
+
+a[data-time="0:01:31.119,0:01:36.340"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 5221ms;
+  -webkit-animation-delay: 91119ms;}
+
+
+a[data-time="0:01:36.340,0:01:39.000"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 2660ms;
+  -webkit-animation-delay: 96340ms;}
+
+
+a[data-time="0:01:39.000,0:01:43.119"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 4119ms;
+  -webkit-animation-delay: 99000ms;}
+
+
+a[data-time="0:01:43.119,0:01:46.780"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 3661ms;
+  -webkit-animation-delay: 103119ms;}
+
+
+a[data-time="0:01:46.780,0:01:49.609"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 2829ms;
+  -webkit-animation-delay: 106780ms;}
+
+a[data-time="0:01:49.609,0:01:56.609"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 7000ms;
+  -webkit-animation-delay: 109609ms;}
+
+
+
+
+
+
+a[data-time="0:01:56.789,0:02:02.960"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 6171ms;
+  -webkit-animation-delay: 116789ms;}
+
+
+
+/* 2 minutes*/
+
+a[data-time="0:02:02.960,0:02:06.600"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 3639ms;
+  -webkit-animation-delay: 122960ms;}
+
+
+
+a[data-time="0:02:06.600,0:02:12.080"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 5480ms;
+  -webkit-animation-delay: 126600ms;}
+
+
+
+a[data-time="0:02:12.080,0:02:16.640"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 4560ms;
+  -webkit-animation-delay: 132080ms;}
+
+
+
+a[data-time="0:02:16.640,0:02:22.260"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 5620ms;
+  -webkit-animation-delay: 136640ms;}
+
+
+
+a[data-time="0:02:22.260,0:02:24.340"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 2080ms;
+  -webkit-animation-delay: 142260ms;}
+
+
+
+a[data-time="0:02:24.340,0:02:29.440"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 5100ms;
+  -webkit-animation-delay: 144340ms;}
+
+
+
+a[data-time="0:02:29.440,0:02:33.230"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 3790ms;
+  -webkit-animation-delay: 149440ms;}
+
+
+
+
+a[data-time="0:02:33.230,0:02:38.390"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 5160ms;
+  -webkit-animation-delay: 153230ms;}
+
+
+
+
+a[data-time="0:02:38.390,0:02:42.550"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 4160ms;
+  -webkit-animation-delay: 158390ms;}
+
+
+
+
+a[data-time="0:02:42.550,0:02:48.150"] {
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 5600ms;
+  -webkit-animation-delay: 162550ms;}
+
+
+
+
+
+a[data-time="0:00:00.099,0:00:04.350"] {
+  -ms-animation-name    : appear;
+  -ms-animation-duration: 4000ms;
+  -ms-animation-delay   : 99ms;}
+
+
+
+ a[data-time="0:00:04.350,0:00:09.560"] {
+  -ms-animation-name    : appear;
+  -ms-animation-duration: 5210ms;
+  -ms-animation-delay   : 4350ms;}
+
+
+
+
+a[data-time="0:00:09.560,0:00:16.420"] {
+  -ms-animation-name    : appear;
+  -ms-animation-duration: 6860ms;
+  -ms-animation-delay   : 9560ms;}
+
+
+
+a[data-time="0:00:16.420,0:00:19.350"] {
+  -ms-animation-name    : appear;
+  -ms-animation-duration: 2930ms;
+  -ms-animation-delay   : 16420ms;}
+
+
+
+
+a[data-time="0:00:19.350,0:00:24.200"] {
+  -ms-animation-name    : appear;
+  -ms-animation-duration: 4850ms;
+  -ms-animation-delay   : 19350ms;}
+
+
+a[data-time="0:00:24.200,0:00:24.880"] {
+  -ms-animation-name    : appear;
+  -ms-animation-duration: 680ms;
+  -ms-animation-delay   : 24200ms;}
+
+
+a[data-time="0:00:24.880,0:00:28.100"] {
+  -ms-animation-name    : appear;
+  -ms-animation-duration: 3220ms;
+  -ms-animation-delay   : 24880ms;}
+
+
+a[data-time="0:00:28.100,0:00:28.670"] {
+  -ms-animation-name: appear;
+  -ms-animation-duration: 570ms;
+  -ms-animation-delay: 28100ms;}
+
+
+a[data-time="0:00:28.670,0:00:35.100"] {
+  -ms-animation-name: appear;
+  -ms-animation-duration: 6430ms;
+  -ms-animation-delay: 28670ms;}
+
+
+a[data-time="0:00:35.100,0:00:37.719"] {
+  -ms-animation-name: appear;
+  -ms-animation-duration: 2619ms;
+  -ms-animation-delay: 35100ms;}
+
+
+a[data-time="0:00:37.719,0:00:43.440"] {
+  -ms-animation-name: appear;
+  -ms-animation-duration: 5721ms;
+  -ms-animation-delay: 37719ms;}
+
+
+a[data-time="0:00:43.440,0:00:49.120"] {
+  -ms-animation-name: appear;
+  -ms-animation-duration: 5680ms;
+  -ms-animation-delay: 43440ms;}
+
+
+a[data-time="0:00:49.120,0:00:50.109"] {
+  -ms-animation-name: appear;
+  -ms-animation-duration: 989ms;
+  -ms-animation-delay: 49120ms;}
+
+
+a[data-time="0:00:50.109,0:00:56.559"] {
+  -ms-animation-name: appear;
+  -ms-animation-duration: 6450ms;
+  -ms-animation-delay: 50109ms;}
+
+
+a[data-time="0:00:56.559,0:01:02.620"] {
+  -ms-animation-name: appear;
+  -ms-animation-duration: 6060ms;
+  -ms-animation-delay: 56559ms;}
+
+
+
+/* 1 minute */
+
+a[data-time="0:01:02.620,0:01:06.450"] {
+  -ms-animation-name: appear;
+  -ms-animation-duration: 3830ms;
+  -ms-animation-delay: 62620ms;}
+
+
+a[data-time="0:01:06.450,0:01:13.369"] {
+  -ms-animation-name: appear;
+  -ms-animation-duration: 6919ms;
+  -ms-animation-delay: 66450ms;}
+
+
+
+a[data-time="0:01:13.369,0:01:14.460"] {
+  -ms-animation-name: appear;
+  -ms-animation-duration: 1091ms;
+  -ms-animation-delay: 73369ms;}
+
+
+
+a[data-time="0:01:14.460,0:01:19.770"] {
+  -ms-animation-name: appear;
+  -ms-animation-duration: 5310ms;
+  -ms-animation-delay: 74460ms;}
+
+
+a[data-time="0:01:19.770,0:01:25.159"] {
+  -ms-animation-name: appear;
+  -ms-animation-duration: 5389ms;
+  -ms-animation-delay: 79770ms;}
+
+
+a[data-time="0:01:25.159,0:01:31.119"] {
+  -ms-animation-name: appear;
+  -ms-animation-duration: 5960ms;
+  -ms-animation-delay: 85159ms;}
+
+
+a[data-time="0:01:31.119,0:01:36.340"] {
+  -ms-animation-name: appear;
+  -ms-animation-duration: 5221ms;
+  -ms-animation-delay: 91119ms;}
+
+
+a[data-time="0:01:36.340,0:01:39.000"] {
+  -ms-animation-name: appear;
+  -ms-animation-duration: 2660ms;
+  -ms-animation-delay: 96340ms;}
+
+
+a[data-time="0:01:39.000,0:01:43.119"] {
+  -ms-animation-name: appear;
+  -ms-animation-duration: 4119ms;
+  -ms-animation-delay: 99000ms;}
+
+
+a[data-time="0:01:43.119,0:01:46.780"] {
+  -ms-animation-name: appear;
+  -ms-animation-duration: 3661ms;
+  -ms-animation-delay: 103119ms;}
+
+
+a[data-time="0:01:46.780,0:01:49.609"] {
+  -ms-animation-name: appear;
+  -ms-animation-duration: 2829ms;
+  -ms-animation-delay: 106780ms;}
+
+a[data-time="0:01:49.609,0:01:56.609"] {
+  -ms-animation-name: appear;
+  -ms-animation-duration: 7000ms;
+  -ms-animation-delay: 109609ms;}
+
+
+
+
+
+
+a[data-time="0:01:56.789,0:02:02.960"] {
+  -ms-animation-name: appear;
+  -ms-animation-duration: 6171ms;
+  -ms-animation-delay: 116789ms;}
+
+
+
+/* 2 minutes*/
+
+a[data-time="0:02:02.960,0:02:06.600"] {
+  -ms-animation-name: appear;
+  -ms-animation-duration: 3639ms;
+  -ms-animation-delay: 122960ms;}
+
+
+
+a[data-time="0:02:06.600,0:02:12.080"] {
+  -ms-animation-name: appear;
+  -ms-animation-duration: 5480ms;
+  -ms-animation-delay: 126600ms;}
+
+
+
+a[data-time="0:02:12.080,0:02:16.640"] {
+  -ms-animation-name: appear;
+  -ms-animation-duration: 4560ms;
+  -ms-animation-delay: 132080ms;}
+
+
+
+a[data-time="0:02:16.640,0:02:22.260"] {
+  -ms-animation-name: appear;
+  -ms-animation-duration: 5620ms;
+  -ms-animation-delay: 136640ms;}
+
+
+
+a[data-time="0:02:22.260,0:02:24.340"] {
+  -ms-animation-name: appear;
+  -ms-animation-duration: 2080ms;
+  -ms-animation-delay: 142260ms;}
+
+
+
+a[data-time="0:02:24.340,0:02:29.440"] {
+  -ms-animation-name: appear;
+  -ms-animation-duration: 5100ms;
+  -ms-animation-delay: 144340ms;}
+
+
+
+a[data-time="0:02:29.440,0:02:33.230"] {
+  -ms-animation-name: appear;
+  -ms-animation-duration: 3790ms;
+  -ms-animation-delay: 149440ms;}
+
+
+
+
+a[data-time="0:02:33.230,0:02:38.390"] {
+  -ms-animation-name: appear;
+  -ms-animation-duration: 5160ms;
+  -ms-animation-delay: 153230ms;}
+
+
+
+
+a[data-time="0:02:38.390,0:02:42.550"] {
+  -ms-animation-name: appear;
+  -ms-animation-duration: 4160ms;
+  -ms-animation-delay: 158390ms;}
+
+
+
+
+a[data-time="0:02:42.550,0:02:48.150"] {
+  -ms-animation-name: appear;
+  -ms-animation-duration: 5600ms;
+  -ms-animation-delay: 162550ms;}
+
+
+
+/*not-prefixed*/
+
+a[data-time="0:00:00.099,0:00:04.350"] {
+  animation-name    : appear;
+  animation-duration: 4000ms;
+  animation-delay   : 99ms;}
+
+
+
+ a[data-time="0:00:04.350,0:00:09.560"] {
+  animation-name    : appear;
+  animation-duration: 5210ms;
+  animation-delay   : 4350ms;}
+
+
+
+
+a[data-time="0:00:09.560,0:00:16.420"] {
+  animation-name    : appear;
+  animation-duration: 6860ms;
+  animation-delay   : 9560ms;}
+
+
+
+a[data-time="0:00:16.420,0:00:19.350"] {
+  animation-name    : appear;
+  animation-duration: 2930ms;
+  animation-delay   : 16420ms;}
+
+
+
+
+a[data-time="0:00:19.350,0:00:24.200"] {
+  animation-name    : appear;
+  animation-duration: 4850ms;
+  animation-delay   : 19350ms;}
+
+
+a[data-time="0:00:24.200,0:00:24.880"] {
+  animation-name    : appear;
+  animation-duration: 680ms;
+  animation-delay   : 24200ms;}
+
+
+a[data-time="0:00:24.880,0:00:28.100"] {
+  animation-name    : appear;
+  animation-duration: 3220ms;
+  animation-delay   : 24880ms;}
+
+
+a[data-time="0:00:28.100,0:00:28.670"] {
+  animation-name: appear;
+  animation-duration: 570ms;
+  animation-delay: 28100ms;}
+
+
+a[data-time="0:00:28.670,0:00:35.100"] {
+  animation-name: appear;
+  animation-duration: 6430ms;
+  animation-delay: 28670ms;}
+
+
+a[data-time="0:00:35.100,0:00:37.719"] {
+  animation-name: appear;
+  animation-duration: 2619ms;
+  animation-delay: 35100ms;}
+
+
+a[data-time="0:00:37.719,0:00:43.440"] {
+  animation-name: appear;
+  animation-duration: 5721ms;
+  animation-delay: 37719ms;}
+
+
+a[data-time="0:00:43.440,0:00:49.120"] {
+  animation-name: appear;
+  animation-duration: 5680ms;
+  animation-delay: 43440ms;}
+
+
+a[data-time="0:00:49.120,0:00:50.109"] {
+  animation-name: appear;
+  animation-duration: 989ms;
+  animation-delay: 49120ms;}
+
+
+a[data-time="0:00:50.109,0:00:56.559"] {
+  animation-name: appear;
+  animation-duration: 6450ms;
+  animation-delay: 50109ms;}
+
+
+a[data-time="0:00:56.559,0:01:02.620"] {
+  animation-name: appear;
+  animation-duration: 6060ms;
+  animation-delay: 56559ms;}
+
+
+
+/* 1 minute */
+
+a[data-time="0:01:02.620,0:01:06.450"] {
+  animation-name: appear;
+  animation-duration: 3830ms;
+  animation-delay: 62620ms;}
+
+
+a[data-time="0:01:06.450,0:01:13.369"] {
+  animation-name: appear;
+  animation-duration: 6919ms;
+  animation-delay: 66450ms;}
+
+
+
+a[data-time="0:01:13.369,0:01:14.460"] {
+  animation-name: appear;
+  animation-duration: 1091ms;
+  animation-delay: 73369ms;}
+
+
+
+a[data-time="0:01:14.460,0:01:19.770"] {
+  animation-name: appear;
+  animation-duration: 5310ms;
+  animation-delay: 74460ms;}
+
+
+a[data-time="0:01:19.770,0:01:25.159"] {
+  animation-name: appear;
+  animation-duration: 5389ms;
+  animation-delay: 79770ms;}
+
+
+a[data-time="0:01:25.159,0:01:31.119"] {
+  animation-name: appear;
+  animation-duration: 5960ms;
+  animation-delay: 85159ms;}
+
+
+a[data-time="0:01:31.119,0:01:36.340"] {
+  animation-name: appear;
+  animation-duration: 5221ms;
+  animation-delay: 91119ms;}
+
+
+a[data-time="0:01:36.340,0:01:39.000"] {
+  animation-name: appear;
+  animation-duration: 2660ms;
+  animation-delay: 96340ms;}
+
+
+a[data-time="0:01:39.000,0:01:43.119"] {
+  animation-name: appear;
+  animation-duration: 4119ms;
+  animation-delay: 99000ms;}
+
+
+a[data-time="0:01:43.119,0:01:46.780"] {
+  animation-name: appear;
+  animation-duration: 3661ms;
+  animation-delay: 103119ms;}
+
+
+a[data-time="0:01:46.780,0:01:49.609"] {
+  animation-name: appear;
+  animation-duration: 2829ms;
+  animation-delay: 106780ms;}
+
+a[data-time="0:01:49.609,0:01:56.609"] {
+  animation-name: appear;
+  animation-duration: 7000ms;
+  animation-delay: 109609ms;}
+
+
+
+
+
+
+a[data-time="0:01:56.789,0:02:02.960"] {
+  animation-name: appear;
+  animation-duration: 6171ms;
+  animation-delay: 116789ms;}
+
+
+
+/* 2 minutes*/
+
+a[data-time="0:02:02.960,0:02:06.600"] {
+  animation-name: appear;
+  animation-duration: 3639ms;
+  animation-delay: 122960ms;}
+
+
+
+a[data-time="0:02:06.600,0:02:12.080"] {
+  animation-name: appear;
+  animation-duration: 5480ms;
+  animation-delay: 126600ms;}
+
+
+
+a[data-time="0:02:12.080,0:02:16.640"] {
+  animation-name: appear;
+  animation-duration: 4560ms;
+  animation-delay: 132080ms;}
+
+
+
+a[data-time="0:02:16.640,0:02:22.260"] {
+  animation-name: appear;
+  animation-duration: 5620ms;
+  animation-delay: 136640ms;}
+
+
+
+a[data-time="0:02:22.260,0:02:24.340"] {
+  animation-name: appear;
+  animation-duration: 2080ms;
+  animation-delay: 142260ms;}
+
+
+
+a[data-time="0:02:24.340,0:02:29.440"] {
+  animation-name: appear;
+  animation-duration: 5100ms;
+  animation-delay: 144340ms;}
+
+
+
+a[data-time="0:02:29.440,0:02:33.230"] {
+  animation-name: appear;
+  animation-duration: 3790ms;
+  animation-delay: 149440ms;}
+
+
+
+
+a[data-time="0:02:33.230,0:02:38.390"] {
+  animation-name: appear;
+  animation-duration: 5160ms;
+  animation-delay: 153230ms;}
+
+
+
+
+a[data-time="0:02:38.390,0:02:42.550"] {
+  animation-name: appear;
+  animation-duration: 4160ms;
+  animation-delay: 158390ms;}
+
+
+
+
+a[data-time="0:02:42.550,0:02:48.150"] {
+  animation-name: appear;
+  animation-duration: 5600ms;
+  animation-delay: 162550ms;}
+
+
+
+
+/* End of subtitles timing */
+
+/*Styling the menu */
+#menu {
+  font-family: "Lucida Grande", Lucida, Verdana, sans-serif;
+  list-style-type: none;
+  position: fixed;
+  bottom: 12%;
+}
+
+#menu #restart {
+  color: #001656;
+  border-radius: 10px;
+  border: 3px solid #001656;
+
+  -webkit-box-shadow: 0px 1px 3px rgba(000,000,000,0.5), inset 0px 0px 3px rgba(255,255,255,1);
+  box-shadow: 0px 1px 3px rgba(000,000,000,0.5), inset 0px 0px 3px rgba(255,255,255,1);
+  font: small-caps 1.4em Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  padding: 0.4em 0.6em 0.5em 0.5em;
+  position: relative;
+  top: 2em;
+  left: 1em;
+}
+
+#menu #restart::before {
+  content: "« ";
+}
+
+#menu #about {
+  position: fixed;
+  right: 10%;
+  bottom: 5%;
+}
+
+@media (max-width : 480px) {
+  #menu {
+  font-size: 0.8em;
+}
+
+}
+
+/* Styling the about page*/
+body#about {
+  font-family: "Lucida Grande", Lucida, Verdana, sans-serif;
+  margin: 5em 10em 10em;
+}
+
+#about h3 {
+  color: #616060;
+}
+
+#about a {
+  color: #001656;
+}
+
+#about #back {
+  color: #001656;
+  border-radius: 10px;
+  border: 3px solid #001656;
+
+  -webkit-box-shadow: 0px 1px 3px rgba(000,000,000,0.5), inset 0px 0px 3px rgba(255,255,255,1);
+  box-shadow: 0px 1px 3px rgba(000,000,000,0.5), inset 0px 0px 3px rgba(255,255,255,1);
+  font: small-caps 1.4em Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  padding: 0.4em 0.6em 0.5em 0.5em;
+  position: relative;
+  top: 2em;
+  left: 1em;
+}
+
+#about #back::before {
+  content: "« ";
+}
