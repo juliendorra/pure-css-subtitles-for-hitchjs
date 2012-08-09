@@ -1,4 +1,4 @@
-@-hitch-requires media-time-2.js;
+@-hitch-requires http://hitchjs.com/use/jdorra.mediatime/1.js;
 
 
 /*Layout the video + subtitles container div*/
@@ -45,190 +45,57 @@ div.metafragments {
 }
 
 
-/* this selector : 
-
-a[src*="0:00:00.099,0:00:04.350"]  {
-}
-
-don't work, be it with end, strict, etc..
-I suppose the fragment identifier in the src attribute is not considered part of the URL.
- */
-
-/*So we copy the media fragments fragment identifier to a data-time custom attribute with exactly the same values and use that as the attribute content selector.
-It's not as elegant that using the fragment identifier, but a CMS or script can at least do it automatically */
+/* this selector : a[src*="0:00:00.099,0:00:04.350"]  {...} don't work, be it with end, strict, etc.. */
+/* I suppose the fragment identifier in the src attribute is not considered part of the URL. */
+/* So we copy the media fragments fragment identifier to a data-time custom attribute with exactly the same */
+/* values and use that as the attribute content selector. It's not as elegant that using the fragment identifier, */
+/* but a CMS or script can at least do it automatically */
 
 /*moz-prefixed*/
+.subtitledvideo video ~ a { top: 400px;  left: 400px; }
 
-video:-media-time(99,4350) ~ a[data-time="0:00:00.099,0:00:04.350"] {
-    visibility: visible;
-    top: 0%;
-    left: 0%; 
-}
-
-
-
-video:-media-time(4350,9560) ~ a[data-time="0:00:04.350,0:00:09.560"] {
-      visibility: visible;
-      top: 0%;
-      left: 0%; 
-  }
-
-
-
-
-video:-media-time(9560,16420) ~ a[data-time="0:00:09.560,0:00:16.420"] {
-       visibility: visible;
-       top: 0%;
-       left: 0%; 
- }
-
-
-
-a[data-time="0:00:16.420,0:00:19.350"] {
-  -moz-animation-name    : appear;
-  -moz-animation-duration: 2930ms;
-  -moz-animation-delay   : 16420ms;}
+.subtitledvideo video:-media-time(300,4350) ~ a[href*="0:00:00.300,0:00:04.350"]{ visibility: visible; }
+.subtitledvideo video:-media-time(4350,9560) ~ a[href*="0:00:04.350,0:00:09.560"]{ visibility: visible; }
+.subtitledvideo video:-media-time(9560,16420) ~ a[href*="0:00:09.560,0:00:16.420"]{ visibility: visible; }
+.subtitledvideo video:-media-time(16420,19350) ~ a[href*="0:00:16.420,0:00:19.350"]{ visibility: visible; }
+.subtitledvideo video:-media-time(19350,24200) ~ a[href*="0:00:19.350,0:00:24.200"]{ visibility: visible; }
+.subtitledvideo video:-media-time(24200,24880) ~ a[href*="0:00:24.200,0:00:24.880"]{ visibility: visible; }
+.subtitledvideo video:-media-time(24880,28100) ~ a[href*="0:00:24.880,0:00:28.100"]{ visibility: visible; }
+.subtitledvideo video:-media-time(28100,28670) ~ a[href*="0:00:28.100,0:00:28.670"]{ visibility: visible; }
+.subtitledvideo video:-media-time(28670,35100) ~ a[href*="0:00:28.670,0:00:35.100"]{ visibility: visible; }
+.subtitledvideo video:-media-time(35100,37719) ~ a[href*="0:00:35.100,0:00:37.719"]{ visibility: visible; }
+.subtitledvideo video:-media-time(37719,43440) ~ a[href*="0:00:37.719,0:00:43.440"]{ visibility: visible; }
+.subtitledvideo video:-media-time(43440,49120) ~ a[href*="0:00:43.440,0:00:49.120"]{ visibility: visible; }
+.subtitledvideo video:-media-time(50109,56559) ~ a[href*="0:00:50.109,0:00:56.559"]{ visibility: visible; }
+.subtitledvideo video:-media-time(56559,102620) ~ a[href*="0:00:56.559,0:01:02.620"]{ visibility: visible; }
+.subtitledvideo video:-media-time(102620,106450) ~ a[href*="0:01:02.620,0:01:06.450"]{ visibility: visible; }
+.subtitledvideo video:-media-time(106450,113369) ~ a[href*="0:01:06.450,0:01:13.369"]{ visibility: visible; }
+.subtitledvideo video:-media-time(113369,114460) ~ a[href*="0:01:13.369,0:01:14.460"]{ visibility: visible; }
+.subtitledvideo video:-media-time(114460,119770) ~ a[href*="0:01:14.460,0:01:19.770"]{ visibility: visible; }
+.subtitledvideo video:-media-time(119770,125159) ~ a[href*="0:01:19.770-0:01:25.159"]{ visibility: visible; }
+.subtitledvideo video:-media-time(125159,131119) ~ a[href*="0:01:25.159-0:01:31.119"]{ visibility: visible; }
+.subtitledvideo video:-media-time(131119,139000) ~ a[href*="0:01:36.340-0:01:39.000"]{ visibility: visible; }
+.subtitledvideo video:-media-time(139000,143119) ~ a[href*="0:01:39.000-0:01:43.119"]{ visibility: visible; }
 
 
-
-
-a[data-time="0:00:19.350,0:00:24.200"] {
-  -moz-animation-name    : appear;
-  -moz-animation-duration: 4850ms;
-  -moz-animation-delay   : 19350ms;}
-
-
-a[data-time="0:00:24.200,0:00:24.880"] {
-  -moz-animation-name    : appear;
-  -moz-animation-duration: 680ms;
-  -moz-animation-delay   : 24200ms;}
-
-
-a[data-time="0:00:24.880,0:00:28.100"] {
-  -moz-animation-name    : appear;
-  -moz-animation-duration: 3220ms;
-  -moz-animation-delay   : 24880ms;}
-
-
-a[data-time="0:00:28.100,0:00:28.670"] {
-  -moz-animation-name: appear;
-  -moz-animation-duration: 570ms;
-  -moz-animation-delay: 28100ms;}
-
-
-a[data-time="0:00:28.670,0:00:35.100"] {
-  -moz-animation-name: appear;
-  -moz-animation-duration: 6430ms;
-  -moz-animation-delay: 28670ms;}
-
-
-a[data-time="0:00:35.100,0:00:37.719"] {
-  -moz-animation-name: appear;
-  -moz-animation-duration: 2619ms;
-  -moz-animation-delay: 35100ms;}
-
-
-a[data-time="0:00:37.719,0:00:43.440"] {
-  -moz-animation-name: appear;
-  -moz-animation-duration: 5721ms;
-  -moz-animation-delay: 37719ms;}
-
-
-a[data-time="0:00:43.440,0:00:49.120"] {
-  -moz-animation-name: appear;
-  -moz-animation-duration: 5680ms;
-  -moz-animation-delay: 43440ms;}
-
-
-a[data-time="0:00:49.120,0:00:50.109"] {
-  -moz-animation-name: appear;
-  -moz-animation-duration: 989ms;
-  -moz-animation-delay: 49120ms;}
-
-
-a[data-time="0:00:50.109,0:00:56.559"] {
-  -moz-animation-name: appear;
-  -moz-animation-duration: 6450ms;
-  -moz-animation-delay: 50109ms;}
-
-
-a[data-time="0:00:56.559,0:01:02.620"] {
-  -moz-animation-name: appear;
-  -moz-animation-duration: 6060ms;
-  -moz-animation-delay: 56559ms;}
-
-
-
-/* 1 minute */
-
-a[data-time="0:01:02.620,0:01:06.450"] {
-  -moz-animation-name: appear;
-  -moz-animation-duration: 3830ms;
-  -moz-animation-delay: 62620ms;}
-
-
-a[data-time="0:01:06.450,0:01:13.369"] {
-  -moz-animation-name: appear;
-  -moz-animation-duration: 6919ms;
-  -moz-animation-delay: 66450ms;}
-
-
-
-a[data-time="0:01:13.369,0:01:14.460"] {
-  -moz-animation-name: appear;
-  -moz-animation-duration: 1091ms;
-  -moz-animation-delay: 73369ms;}
-
-
-
-a[data-time="0:01:14.460,0:01:19.770"] {
-  -moz-animation-name: appear;
-  -moz-animation-duration: 5310ms;
-  -moz-animation-delay: 74460ms;}
-
-
-a[data-time="0:01:19.770,0:01:25.159"] {
-  -moz-animation-name: appear;
-  -moz-animation-duration: 5389ms;
-  -moz-animation-delay: 79770ms;}
-
-
-a[data-time="0:01:25.159,0:01:31.119"] {
-  -moz-animation-name: appear;
-  -moz-animation-duration: 5960ms;
-  -moz-animation-delay: 85159ms;}
-
-
-a[data-time="0:01:31.119,0:01:36.340"] {
-  -moz-animation-name: appear;
-  -moz-animation-duration: 5221ms;
-  -moz-animation-delay: 91119ms;}
-
-
-a[data-time="0:01:36.340,0:01:39.000"] {
-  -moz-animation-name: appear;
-  -moz-animation-duration: 2660ms;
-  -moz-animation-delay: 96340ms;}
-
-
-a[data-time="0:01:39.000,0:01:43.119"] {
+a[data-time="0:01:39.000-0:01:43.119"] {
   -moz-animation-name: appear;
   -moz-animation-duration: 4119ms;
   -moz-animation-delay: 99000ms;}
 
 
-a[data-time="0:01:43.119,0:01:46.780"] {
+a[data-time="0:01:43.119-0:01:46.780"] {
   -moz-animation-name: appear;
   -moz-animation-duration: 3661ms;
   -moz-animation-delay: 103119ms;}
 
 
-a[data-time="0:01:46.780,0:01:49.609"] {
+a[data-time="0:01:46.780-0:01:49.609"] {
   -moz-animation-name: appear;
   -moz-animation-duration: 2829ms;
   -moz-animation-delay: 106780ms;}
 
-a[data-time="0:01:49.609,0:01:56.609"] {
+a[data-time="0:01:49.609-0:01:56.609"] {
   -moz-animation-name: appear;
   -moz-animation-duration: 7000ms;
   -moz-animation-delay: 109609ms;}
@@ -238,7 +105,7 @@ a[data-time="0:01:49.609,0:01:56.609"] {
 
 
 
-a[data-time="0:01:56.789,0:02:02.960"] {
+a[data-time="0:01:56.789-0:02:02.960"] {
   -moz-animation-name: appear;
   -moz-animation-duration: 6171ms;
   -moz-animation-delay: 116789ms;}
